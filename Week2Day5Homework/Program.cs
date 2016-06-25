@@ -31,7 +31,9 @@ namespace Week2Day5Homework
                         Console.WriteLine("Enter Salary");
                         double salary = Convert.ToDouble(Console.ReadLine());
 
-                        Console.WriteLine(firstName, lastName);
+                        Console.WriteLine(firstName + " " + lastName);
+                        Console.WriteLine(email);
+                        Console.WriteLine("Salary: " + salary);
                         break;
 
                 }
