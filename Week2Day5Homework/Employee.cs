@@ -8,13 +8,13 @@ namespace Week2Day5Homework
 {
     class Employee
     {
-        private string firstName;
-        private string lastName;
-        private string email;
-        private int phoneNum;
-        private double salary;
-        private bool perfSatisfactory = true;
-        private string perfReview;
+        string firstName;
+        string lastName;
+        string email;
+        int phoneNum;
+        double salary;
+        bool perfSatisfactory;
+        string perfReview;
 
         public Employee()
         {
@@ -111,6 +111,10 @@ namespace Week2Day5Homework
             {
                 return perfSatisfactory;
             }
+            private set
+            {
+                perfSatisfactory = value;
+            }
         }
         public string PerfReview
         {
@@ -129,6 +133,6 @@ namespace Week2Day5Homework
             }
         }
 
-        public string GetDisplayText() => firstName + " " + lastName + ", " + email;
+        public string GetDisplayText() => firstName + " " + lastName + ", " + email + ", " + salary;
     }
 }
