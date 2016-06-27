@@ -8,24 +8,24 @@ namespace Week2Day5Homework
 {
     class Department
     {
-        private string empDepartment;
+        string department;
 
-        private Department()
+        public Department()
         {
         }
-        public Department(string empDepartment)
+        public Department(string department)
         {
-            EmpDepartment = empDepartment;
+            EmpDepartment = department;
         }
         public string EmpDepartment
         {
             get
             {
-                return empDepartment;
+                return department;
             }
             set  //add error handling
             {
-                empDepartment = value;
+                department = value;
             }
         }
 

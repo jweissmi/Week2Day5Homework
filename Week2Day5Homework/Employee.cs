@@ -15,19 +15,22 @@ namespace Week2Day5Homework
         double salary;
         bool perfSatisfactory;
         string perfReview;
+        string department;
 
         public Employee()
         {
         }
 
-        public Employee(string firstName, string lastName, string email, int phoneNum, double salary, bool perfSatisfactory, string perfReview)
+        public Employee(string firstName, string lastName, string email, int phoneNum, double salary, bool perfSatisfactory, string perfReview, string department)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Email = email;
-            this.PhoneNum = phoneNum;
-            this.Salary = salary;
-            this.PerfReview = perfReview;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            PhoneNum = phoneNum;
+            Salary = salary;
+            PerfSatisfactory = perfSatisfactory;
+            PerfReview = perfReview;
+            Department = department;
         }
 
         public string FirstName
@@ -111,7 +114,7 @@ namespace Week2Day5Homework
             {
                 return perfSatisfactory;
             }
-            private set
+            set
             {
                 perfSatisfactory = value;
             }
@@ -132,7 +135,19 @@ namespace Week2Day5Homework
                 perfReview = value;
             }
         }
-
-        public string GetDisplayText() => firstName + " " + lastName + ", " + email + ", " + salary;
+        public string Department
+        {
+            get
+            {
+                return department;
+            }
+            set  //add error handling
+            {
+                department = value;
+            }
+        }
     }
+
+    //public string GetDisplayText() => firstName + " " + lastName + ", " + email + ", " + salary;
 }
+

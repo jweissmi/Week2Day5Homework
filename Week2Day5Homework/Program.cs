@@ -13,8 +13,10 @@ namespace Week2Day5Homework
             Console.WriteLine("Welcome to peopleNet");
             bool morePeople = true;
             bool empAdded = false;
+            bool deptAdded = false;
 
             List<Employee> employeeList = new List<Employee>();
+            List<Department> deptList = new List<Department>();
 
             while (morePeople)
             {
@@ -23,25 +25,40 @@ namespace Week2Day5Homework
                 switch (menuChoice)
                 {
                     case 1:
-                        AddEmployee(ref empAdded, employeeList);
+                        AddEmployee(ref empAdded, employeeList, deptList);
                         break;
 
                     case 2:
-                        Console.WriteLine("Enter Department Name");
-                        string empDepartment = (Console.ReadLine());
+                        //Console.WriteLine("Enter Department Name");
+                        //string department = (Console.ReadLine());
 
-                        Console.WriteLine(empDepartment);
+                        //Console.WriteLine(department);
                         break;
 
-                    case 3:
-                        //AssignRating();
+                    case 3:  //Assign Rating
+                        //for (int e = 0; e < employeeList.Count; e++)
+                        //{
+                        //    foreach (Employee emp in employeeList)
+                        //    {
+                        //        Console.WriteLine("Is this employees work satisfactory? (y/n)");
+                        //        string answer = Console.ReadLine();
+                        //        if (answer == "y")
+                        //        {
+                        //            perfSatisfactory = true;
+                        //        }
+                        //        else
+                        //        {
+                        //            perfSatisfactory = false;
+                        //        }
+                        //    }
+                        //}
                         break;
 
-                    case 4:
+                    case 4: //Write Employee Review
 
                         break;
 
-                    case 5:
+                    case 5: //List of Employees
                         for (int e = 0; e < employeeList.Count; e++)
                         {
                             foreach (Employee emp in employeeList)
@@ -51,17 +68,24 @@ namespace Week2Day5Homework
                                 Console.WriteLine(emp.Email);
                                 Console.WriteLine(emp.Salary);
                                 Console.WriteLine(emp.PerfSatisfactory);
-                                Console.WriteLine(emp.PerfReview);
+                                //Console.WriteLine(emp.PerfReview);
+                                Console.WriteLine(emp.Department);
                             }
                         }
 
                         break;
 
-                    case 6:
-
+                    case 6: //List of Departments
+                        for (int d = 0; d < deptList.Count; d++)
+                        {
+                            foreach (Department dept in deptList)
+                            {
+                                Console.WriteLine(dept.EmpDepartment);
+                            }
+                        }
                         break;
 
-                    case 7:
+                    case 7: //Give Raise
 
                         break;
 
@@ -79,7 +103,7 @@ namespace Week2Day5Homework
                 Console.WriteLine();
             }
         }
-        public static void AddEmployee(ref bool empAdded, List<Employee> EmployeeList)
+        public static void AddEmployee(ref bool empAdded, List<Employee> EmployeeList, List<Department> DeptList)
         {
             Employee newEmp = new Employee();
             Console.WriteLine("Enter first name: ");
@@ -98,23 +122,21 @@ namespace Week2Day5Homework
             double salary = Convert.ToDouble(Console.ReadLine());
             newEmp.Salary = salary;
 
-            Console.WriteLine("Is this employees work satisfactory? (y/n)");
-            string answer = Console.ReadLine();
-            if (answer == "y")
-            {
-                perfSatisfactory = true;
-            }
-            else
-            {
-                perfSatisfactory = false;
-            }
+            Department newDept = new Department();
+            Console.WriteLine("Enter department: ");
+            string department = (Console.ReadLine());
+            newDept.EmpDepartment = department;
 
             EmployeeList.Add(newEmp);
             empAdded = true;
+
+            DeptList.Add(newDept);
+            deptAdded = true;
         }
 
         public static int menuChoice;
-        //private static bool perfSatisfactory;
+        //private static bool perfSaisfactory;
+        public static bool deptAdded;
 
         public static void MenuMaker()
         {
